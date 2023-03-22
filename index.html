@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slider</title>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  
+  <ul class="slider">
+    <li class="slider-item"><p>Slide 1</p></li>
+    <li class="slider-item"><p>Slide 2</p></li>
+    <li class="slider-item"><p>Slide 3</p></li>
+    <li class="slider-item"><p>Slide 4</p></li>
+    <li class="slider-item"><p>Slide 5</p></li>
+    <li class="slider-item"><p>Slide 6</p></li>
+    <li class="slider-item"><p>Slide 7</p></li>
+    <li class="slider-item"><p>Slide 8</p></li>
+    <li class="slider-item"><p>Slide 9</p></li>
+  </ul>
+
+
+  
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.slider').slick({
+        // 'autoplay': true,
+        'slidesToShow': 5,
+        'slidesToScroll': 1,
+        'centerMode': true,
+        'variableWidth': true,
+      });
+    });
+    $('.slider').on('afterChange', function() {
+      let prevSlide = $('.slick-current')
+      $('.slick-slide').attr('style', '')
+      prevSlide.prev('.slick-slide').css('top', '50px')
+      prevSlide.next('.slick-slide').css('top', '50px')
+      console.log(prevSlide.prev('.slick-slide'))
+    });
+  </script>
+
+</body>
+</html>
